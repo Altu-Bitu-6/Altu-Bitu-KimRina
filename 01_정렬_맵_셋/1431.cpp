@@ -1,4 +1,3 @@
-
 #include<iostream>
 #include <algorithm>
 #include <vector>
@@ -14,7 +13,6 @@ int compare(string& s1, string& s2) {
     }
     // A와 B의 길이가 같을 경우
     else {
-
         for(int i = 0; i < s1.size(); i++) {
             if(s1[i] >= '0' && s1[i] <= '9'){
                 sumA += s1[i] - '0';
@@ -48,6 +46,5 @@ int main() {
         cout << str[i] << '\n';
     }
     return 0;
-
 }
 
