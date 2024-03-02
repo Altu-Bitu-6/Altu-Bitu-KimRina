@@ -14,17 +14,19 @@ string add(const string& str1, const string& str2) {
         int a = 0, b = 0, sum = 0;
 
         //자리수보다 크면 a or b 는 0
-        if(i<str1.size())
+        if(i<str1.size()) {
             a = str1[str1.size() - i - 1] - '0';
-        if(i<str2.size())
+        }
+        if(i<str2.size()) {
             b = str2[str2.size() - i - 1] - '0';
+        }
 
         sum = a + b + carry;
         carry = sum/10;
         result += (sum % 10) + '0';
     }
 
-    if(carry == 1) {
+    if(carry) {
         result += '1';
     }
 
