@@ -33,6 +33,11 @@ vector<int> add(int a1, int a2, int b1, int b2) {
 }
 
 int main() {
+    //입출력 속도 향상
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    
     int a1, a2, b1, b2;
 
     cin >> a1 >> b1;

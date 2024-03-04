@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector<char> random (int n, int k) {
+vector<char> lucky_wheel (int n, int k) {
     vector<char> v(n, '?'); //처음 가르킨 곳이 v[0] 알파벳
     int cnt;
     int order = 0;
@@ -43,11 +43,16 @@ vector<char> random (int n, int k) {
 
 
 int main() {
+    //입출력 속도 향상
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
     int n, k;
     cin >> n >> k;
 
     vector<char> result;
-    result = random(n, k);
+    result = lucky_wheel(n, k);
 
     if(result[0] == '!'){
         cout << '!';
