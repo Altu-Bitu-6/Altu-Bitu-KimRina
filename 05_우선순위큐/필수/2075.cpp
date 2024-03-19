@@ -18,7 +18,7 @@ int main() {
         pq.push(num);
     }
 
-    //n개 넣고 n개 제거 -> n-1번 반복
+    //n개 넣고 n개 제거 -> n-1번 반복2075.cpp
 	for (int i = 0; i < n-1; i++) {
 		for (int j = 0; j < n; j++) {
 			cin >> num;
