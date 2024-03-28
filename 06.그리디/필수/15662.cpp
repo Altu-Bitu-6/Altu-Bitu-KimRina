@@ -7,19 +7,22 @@ vector<string> li;
 vector<pair<int, int> > stack;
 vector<int> visited;
 
+//톱니바퀴 인덱스, 회전 방향 입력받아 회전 가능한 톱니바퀴 스택에 추가
 void check_rotation(int current_num, int current_dir) {
+    //왼쪽 톱니바퀴 존재 & 방문 안한 상태
     if (current_num - 1 >= 0 && visited[current_num - 1] == 0) {
         if (li[current_num][6] != li[current_num - 1][2]) { // 맞닿아 있는 면이 서로 다른 극인지 체크
             stack.push_back(make_pair(current_num - 1, current_dir * -1));
-            visited[current_num - 1] = 1;
-            check_rotation(current_num - 1, current_dir * -1);
+            visited[current_num - 1] = 1; //방문여부 표시
+            check_rotation(current_num - 1, current_dir * -1); //재귀함수로 탐색
         }
     }
+    //오른쪽 톱니바퀴 존재 & 방문 안한 상태
     if (current_num + 1 < li.size() && visited[current_num + 1] == 0) {
         if (li[current_num][2] != li[current_num + 1][6]) { // 맞닿아 있는 면이 서로 다른 극인지 체크
             stack.push_back(make_pair(current_num + 1, current_dir * -1));
-            visited[current_num + 1] = 1;
-            check_rotation(current_num + 1, current_dir * -1);
+            visited[current_num + 1] = 1; //방문여부 표시
+            check_rotation(current_num + 1, current_dir * -1); //재귀함수로 탐색
         }
     }
 }
@@ -44,6 +47,7 @@ int main() {
         visited[num - 1] = 1;
         check_rotation(num - 1, direction);
 
+        //스택에 있는 톱니바퀴들 회전
         while (!stack.empty()) {
             pair<int, int> top = stack.back();
             stack.pop_back();
@@ -58,6 +62,7 @@ int main() {
     }
 
     int cnt = 0;
+    //12시 방향이 1인 톱니바퀴 세기
     for (int i = 0; i < t; ++i) {
         if (li[i][0] == '1') {
             cnt++;
