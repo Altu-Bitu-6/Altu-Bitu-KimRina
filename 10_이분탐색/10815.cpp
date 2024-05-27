@@ -7,21 +7,21 @@ using namespace std;
 #define endl '\n'
 
 int binarySearch(int num, vector<int>& card, int n) {
-    int low = 0;
-    int high = n-1;
+    int left = 0;
+    int right = n-1;
 
-    while (low <= high) {
-        int mid = (low + high) / 2;
+    while (left <= right) {
+        int mid = (left + right) / 2;
 
         //원하는 값 찾았으면 1 반환
         if(num == card[mid]) return 1;
         //원하는 값이 mid보다 작을 경우
         else if(num < card[mid]) {
-            high = mid - 1;
+            right = mid - 1;
         }
         //원하는 값이 mid보다 클 경우
         else {
-            low = mid + 1;
+            left = mid + 1;
         }
     }
 
